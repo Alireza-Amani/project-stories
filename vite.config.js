@@ -8,6 +8,9 @@ const __dirname = dirname(__filename);
 
 export default defineConfig({
   base: "/project-stories/",
+  server: {
+    host: true,
+  },
   build: {
     outDir: "dist",
     rollupOptions: {
