@@ -16,7 +16,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        flashDenken: resolve(__dirname, "flash-denken.html"), // Add your new page here
+        flashDenken: resolve(__dirname, "flash-denken.html"),
+        contact: resolve(__dirname, "contact.html"),
       },
     },
   },
