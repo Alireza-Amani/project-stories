@@ -583,3 +583,15 @@ code {
 .contact-link:hover {
   color: var(--accent-gold);
 }
+
+.content-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(191, 167, 128, 0.4);
+  transition: all 0.3s ease;
+}
+
+.content-link:hover {
+  color: var(--text-main);
+  border-bottom-color: var(--accent-gold);
+}
