@@ -471,13 +471,52 @@ code {
 
 /* Responsiveness */
 @media (max-width: 768px) {
+  /* 1. The Navbar Flow */
   .navbar {
-    padding: 1.5rem 2rem;
+    flex-direction: column; /* Stack the logo above the links */
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
   }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap; /* Allow links to drop to a new line if needed */
+    justify-content: center;
+    gap: 1rem; /* Use flexible gaps instead of rigid margins */
+  }
+
+  .nav-links a {
+    margin-left: 0; /* Remove the desktop constraint */
+    font-size: 0.85rem;
+  }
+
+  /* 2. Grid and Padding Relaxations */
+  .hero {
+    padding: 4rem 1rem; /* Less empty space on small screens */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Force single column so cards don't break */
+  }
+
   .project-gallery {
     grid-template-columns: 1fr;
   }
+
+  /* 3. Typography Adjustments */
+  .aug-hero {
+    padding: 4rem 1rem 2rem;
+  }
+
   .aug-hero h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .par-executive-grid {
+    padding: 0 1rem;
+  }
+
+  .par-box {
+    padding: 1.5rem;
   }
 }
