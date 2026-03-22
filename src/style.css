@@ -35,7 +35,7 @@ body {
 /* --- SHARED COMPONENTS: NAV & FOOTER --- */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 2rem 2rem; /* Reduced horizontal padding slightly */
 
