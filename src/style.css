@@ -34,7 +34,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 4rem;
+  padding: 2rem 2rem; /* Reduced horizontal padding slightly */
+
+  /* THE FIX: Constrain the width and center it */
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+
   position: relative;
   z-index: 10;
 }
@@ -57,13 +63,33 @@ body {
 .nav-links a:hover {
   color: var(--accent-gold);
 }
-
 footer {
   text-align: center;
   padding: 4rem 2rem;
   color: var(--text-muted);
   font-size: 0.8rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  /* THE FIX: Match the navbar and hero width */
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+
+  /* We move the border to a pseudo-element so the line itself
+     doesn't stretch forever, keeping the design tight. */
+  border-top: none;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px; /* A slightly narrower line looks elegant */
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* =========================================
@@ -73,12 +99,14 @@ footer {
 .hero {
   padding: 6rem 2rem;
   text-align: center;
-  position: relative;
-}
 
-.hero-content {
+  /* THE FIX: Prevent the stage from becoming wider than a theater */
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+
   position: relative;
-  z-index: 2;
+  overflow: hidden;
 }
 
 .hero h1 {
@@ -95,24 +123,58 @@ footer {
   line-height: 1.5;
 }
 
+/* Ensure both headers act as the "Stage" */
+.hero,
+.aug-hero {
+  position: relative;
+  overflow: hidden; /* Prevents the massive spotlight from creating scrollbars */
+}
+
 .spotlight {
   position: absolute;
-  top: -20%;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 60vw;
-  height: 60vw;
+  width: 140%;
+  height: 140%;
   background: radial-gradient(
-    circle,
-    rgba(220, 200, 170, 0.08) 0%,
-    rgba(13, 14, 18, 0) 70%
+    circle at 50% 20%,
+    rgba(255, 245, 220, 0.18) 0%,
+    rgba(220, 200, 170, 0.05) 25%,
+    transparent 50%
   );
   z-index: 1;
   pointer-events: none;
 }
 
+/* The "Stage Floor" line for both page types */
+.hero::after,
+.aug-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(230, 210, 180, 0.3) 50%,
+    transparent 100%
+  );
+  z-index: 3;
+}
+
+/* Ensure ALL hero text sits above the light */
+.hero-content,
+.aug-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
 .projects-section {
-  max-width: 1200px;
+  /* We've lowered this from 1200px to keep content dense and readable */
+  max-width: 1100px;
   margin: 0 auto;
   padding: 4rem 2rem;
   position: relative;
@@ -129,20 +191,32 @@ footer {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  /* CHANGE: Instead of minmax(250px, 1fr), we use a 'capped' max value.
+     This ensures cards stay between 300px and 450px.
+     If the screen is huge, it will simply leave more empty space
+     on the sides rather than blowing up the cards.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+
+  /* Centers the grid itself if there are fewer cards than the max-width allows */
+  justify-content: center;
+  gap: 2rem;
 }
+/* --- UPDATED PROJECT CARDS (With Images) --- */
 
 .card {
+  max-width: 450px; /* The absolute limit for a single card */
+  width: 100%;
+  margin: 0 auto; /* Keeps them centered in their grid track */
   background-color: var(--card-bg);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  padding: 2rem;
   text-decoration: none;
   color: var(--text-main);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Crucial: Keeps the image inside the rounded corners */
 }
 
 .card:hover {
@@ -151,23 +225,58 @@ footer {
   box-shadow: 0 10px 30px var(--glow-color);
 }
 
-.card-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+/* The Image Container */
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Forces a uniform cinematic rectangle */
+  overflow: hidden;
+  background-color: #08090b; /* Fallback color while image loads */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.card h4 {
+/* The Image Itself */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents stretching; crops gracefully instead */
+  opacity: 0.7; /* Dims the image slightly to fit the dark aesthetic */
+  transition:
+    transform 0.6s ease,
+    opacity 0.3s ease;
+  filter: grayscale(
+    20%
+  ); /* Optional: Mutes colors slightly for a serious tone */
+}
+
+/* Subtle zoom effect on hover */
+.card:hover .card-image {
+  transform: scale(1.05);
+  opacity: 1; /* Brightens up when they look closely */
+  filter: grayscale(0%);
+}
+
+/* The Text Container */
+.card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h4 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   letter-spacing: 1px;
 }
 
-.card p {
+.card-content p {
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
+
+/* Your existing .tags styling remains unchanged below this */
 
 .tags {
   display: flex;
@@ -319,7 +428,7 @@ footer {
   margin: 4rem 0;
 }
 
-.gallery-item figure {
+.gallery-item {
   display: flex;
   flex-direction: column;
 }
