@@ -105,7 +105,7 @@
           pursue the learning experience while immersing myself in the language.
         </p>
         <p>
-          One of the first things I did was to create a local flash card app
+          One of the first things I did was to create a local flash card web app
           that was basically a digital way to have physical traditional flash
           cards.
         </p>
@@ -117,12 +117,13 @@
           were spoken.
         </p>
 
-        <img
-          src="src/assets/images/socrates-leert-nl.png"
-          alt="Socrates learning context"
-          class="project-banner-img"
-        />
-
+        <figure>
+          <img
+            src="src/assets/images/socrates-leert-nl.png"
+            alt="The photo of Socrates eating frikandel on a bike in a Dutch city."
+            class="project-banner-img"
+          />
+        </figure>
         <p>
           I kept thinking and questioning about the learning process. I started
           from the first principles:
@@ -226,12 +227,46 @@
       </article>
 
       <article class="dive-section">
-        <h2>Implementation</h2>
+        <h2>Main Features</h2>
+        <p>The app has three main functionalities:</p>
+        <ul>
+          <li>
+            For each word it will generate learning material + recall prompts.
+            Google's Gemini (a large language model) is the curator. I rely
+            heavily on its ability to provide structural output. In the figure
+            below you can see the tab where I add vocabulary entires and send
+            them to Gemini for creating learning material and recall prompts.
+            <figure>
+              <img
+                src="src/assets/images/add-tab.png"
+                alt="Add tab screenshot"
+                class="screenshot-img"
+              />
+            </figure>
+          </li>
+          <li>
+            It provides a learning session (see figure below) where you get
+            exposed to new vocabulary entires within a context.
+
+            <figure>
+              <img
+                src="src/assets/images/learning-material.png"
+                alt="Learning session screenshot"
+                class="screenshot-img"
+              />
+            </figure>
+          </li>
+        </ul>
+        <p>
+          The webapp has a couple of tabs responsile for different
+          functionalities.
+        </p>
       </article>
     </main>
 
     <footer>
       <p>© 2026 Alireza Amani.</p>
     </footer>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
