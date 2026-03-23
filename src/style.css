@@ -528,6 +528,28 @@ footer::before {
   margin: 0 auto;
 }
 
+.term-trigger {
+  color: var(--accent-gold);
+  cursor: help;
+  border-bottom: 1px dotted var(--accent-gold);
+}
+
+.info-dialog {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  color: var(--text-main);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-dialog h3 {
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
 .gallery-item figcaption {
   margin-top: 1rem;
   font-size: 0.9rem;

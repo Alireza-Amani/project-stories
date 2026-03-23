@@ -25,4 +25,28 @@ document.addEventListener("DOMContentLoaded", () => {
       dialog.showModal();
     });
   });
+
+  // Handle info dialogs triggers
+  const triggers = document.querySelectorAll(".term-trigger");
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const dialogId = trigger.getAttribute("data-dialog");
+      const infoDialog = document.getElementById(dialogId);
+      if (infoDialog) {
+        infoDialog.showModal();
+      }
+    });
+  });
+
+  // Close info dialogs when clicking outside
+  const infoDialogs = document.querySelectorAll(".info-dialog");
+  infoDialogs.forEach((dialog) => {
+    dialog.addEventListener("click", (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = rect.top <= e.clientY && e.clientY <= rect.top + rect.height && rect.left <= e.clientX && e.clientX <= rect.left + rect.width;
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });
+  });
 });

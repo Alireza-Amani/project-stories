@@ -231,11 +231,13 @@
         <p>The app has three main functionalities:</p>
         <ul>
           <li>
-            For each word it will generate learning material + recall prompts.
-            Google's Gemini (a large language model) is the curator. I rely
-            heavily on its ability to provide structural output. In the figure
-            below you can see the tab where I add vocabulary entires and send
-            them to Gemini for creating learning material and recall prompts.
+            <p>
+              For each word it will generate learning material + recall prompts.
+              Google's Gemini (a large language model) is the curator. I rely
+              heavily on its ability to provide structural output. In the figure
+              below you can see the tab where I add vocabulary entires and send
+              them to Gemini for creating learning material and recall prompts.
+            </p>
             <figure>
               <img
                 src="src/assets/images/add-tab.png"
@@ -245,9 +247,12 @@
             </figure>
           </li>
           <li>
-            It provides a learning session (see figure below) where you get
-            exposed to new vocabulary entires within a context.
-
+            <p>
+              It provides learning sessions where you get exposed to learning
+              material for vocabulary entires. The most important part of this
+              material is where you see the new word/phrase within a constructed
+              context:
+            </p>
             <figure>
               <img
                 src="src/assets/images/learning-material.png"
@@ -255,14 +260,97 @@
                 class="screenshot-img"
               />
             </figure>
+
+            <p>
+              In order to optimize the
+              <span class="term-trigger" data-dialog="encoding-info"
+                >encoding</span
+              >
+              we get the change to create our own contextualized example, add an
+              image, and link to a YouTube video where we get to hear how that
+              word sounds:
+            </p>
+            <div class="project-gallery" style="margin: 2rem 0; gap: 1rem">
+              <figure>
+                <img
+                  src="src/assets/images/custom-scenario.png"
+                  alt="Learning session screenshot - custom scenario"
+                  class="screenshot-img"
+                />
+              </figure>
+              <figure>
+                <img
+                  src="src/assets/images/image-video.png"
+                  alt="Learning session screenshot - image and video placeholders"
+                  class="screenshot-img"
+                />
+              </figure>
+            </div>
+          </li>
+
+          <li>
+            <p>
+              It provides an opportunity for attempting active recall, using a
+              <a
+                href="https://github.com/fasiha/ebisu"
+                target="_blank"
+                class="content-link"
+                rel="noopener noreferrer"
+                >spaced repitition system</a
+              >
+              based on forgetting probability. Below you see a prompt to
+              encourage recalling of the word "knipperend":
+            </p>
+            <figure>
+              <img
+                src="src/assets/images/recall-tab-snippet.png"
+                alt="Recall session screenshot"
+                class="screenshot-img"
+              />
+            </figure>
           </li>
         </ul>
+      </article>
+
+      <article class="dive-section">
+        <h2>Notes</h2>
+
         <p>
-          The webapp has a couple of tabs responsile for different
-          functionalities.
+          This is an app that just works. I have done my best during the
+          development but there is a large room for improvement as far as
+          software engineering (refactoring, efficiency, etc) is concerned.
+        </p>
+
+        <p>
+          I am still using it but the construction of it is based on the point
+          of view / ideas that I had a year ago. If I had time I would change a
+          lot about it. 
         </p>
       </article>
     </main>
+
+    <dialog id="encoding-info" class="info-dialog">
+      <h3>Encoding</h3>
+      <p>
+        In memory psychology, encoding is the crucial first step of creating a
+        new memory trace. It's how you perceive and process information to store
+        it.
+      </p>
+      <p>
+        By creating your own context (ideally leveraging the self-reference
+        effect), finding an image, and hearing the sound (Dual Coding), you make
+        this process active and multisensory, leading to much stronger retention
+        than passive reading.
+      </p>
+      <form method="dialog">
+        <button
+          class="submit-btn"
+          style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem"
+        >
+          Close
+        </button>
+      </form>
+    </dialog>
 
     <footer>
       <p>© 2026 Alireza Amani.</p>
