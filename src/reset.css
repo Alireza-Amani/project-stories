@@ -22,6 +22,8 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   /* Tying back to our earlier chat: using dvh where supported */
   min-height: 100dvh;
 }
