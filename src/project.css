@@ -116,7 +116,8 @@
   );
 }
 .problem-box::after {
-  content: "01";
+  content: "?";
+  right: -5px; /* Adjust placement for the punctuation */
 }
 
 .action-box::before {
@@ -130,7 +131,7 @@
   );
 }
 .action-box::after {
-  content: "02";
+  content: "Δ"; /* Delta represents Change or Difference */
 }
 
 .result-box::before {
@@ -144,7 +145,7 @@
   );
 }
 .result-box::after {
-  content: "03";
+  content: "✓";
 }
 
 /* Contact Page Watermark Overrides */
