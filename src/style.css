@@ -374,16 +374,16 @@ footer::before {
   flex-wrap: wrap;
   margin-top: 1rem;
 }
-
 .tech-badges span {
   font-size: 0.75rem;
-  padding: 0.5rem 1.2rem;
+  padding: 0.4rem 1.2rem; /* Adjusted padding slightly */
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(191, 167, 128, 0.2);
-  border-radius: 4px;
+  border-radius: 20px; /* CHANGED: The "Pill" look */
   color: var(--accent-gold);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
+  font-family: "Consolas", "Monaco", monospace;
 }
 
 .tech-badges span:hover {
@@ -615,14 +615,19 @@ article p {
 }
 
 .info-dialog {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(191, 167, 128, 0.2); /* Use your gold accent for the border */
+  border-radius: 12px;
   background: var(--card-bg);
   color: var(--text-main);
   padding: 2rem;
-  border-radius: 8px;
   max-width: 500px;
   margin: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-dialog::backdrop {
+  background: rgba(13, 14, 18, 0.85); /* Matches your very dark theme */
+  backdrop-filter: blur(6px); /* Blurs the rest of the page */
 }
 
 .info-dialog h3 {
