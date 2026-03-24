@@ -436,3 +436,103 @@ footer::before {
   color: var(--text-main);
   border-bottom-color: var(--accent-gold);
 }
+
+/* --- META BADGES CONTAINER --- */
+.meta-badges {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem; /* Spacing before the h1 */
+}
+
+/* --- THE BASE TAG --- */
+.meta-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-family: var(
+    --font-main
+  ); /* Keep sans-serif to separate from tech stack */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  cursor: help; /* Changes cursor to a question mark to imply more info */
+  padding-bottom: 2px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.meta-tag:hover {
+  color: var(--text-main);
+  border-bottom-color: var(--accent-gold);
+}
+
+/* --- THE TOOLTIP (The hidden information) --- */
+.meta-tag::after {
+  content: attr(data-tooltip); /* Pulls the text from the HTML attribute */
+  position: absolute;
+  bottom: 150%;
+  left: 200%;
+  transform: translateX(-50%) translateY(10px);
+  background: #1a1c23; /* Slightly lighter than your main background */
+  color: var(--text-main);
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(191, 167, 128, 0.3); /* Gold accent border */
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: normal;
+  text-transform: none;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Slight bounce effect */
+  z-index: 100;
+  pointer-events: none; /* Prevents the tooltip from blocking mouse interactions */
+}
+
+/* The tiny triangle pointing down from the tooltip */
+.meta-tag::before {
+  content: "";
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #1a1c23 transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 101;
+}
+
+/* Reveal tooltip on hover */
+.meta-tag:hover::after,
+.meta-tag:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- THE INDICATOR DOTS (Optional, adds subtle color-coding) --- */
+.tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+}
+
+.type-personal .tag-dot {
+  background-color: var(--color-result); /* Green */
+}
+.type-academic .tag-dot {
+  background-color: #5c7cfa; /* Blue for academia */
+}
+.type-work .tag-dot {
+  background-color: var(--color-action); /* Yellow/Orange */
+}
