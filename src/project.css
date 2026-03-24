@@ -147,6 +147,30 @@
   content: "03";
 }
 
+/* Contact Page Watermark Overrides */
+.contact-grid .problem-box::after {
+  content: "@";
+  font-size: 9rem;
+  right: -10px;
+  bottom: -10px;
+}
+
+.contact-grid .action-box::after {
+  content: "&";
+  font-family:
+    "Times New Roman", serif; /* Ampersands often look better in serif */
+  font-size: 9rem;
+  right: -5px;
+  bottom: -10px;
+}
+
+.contact-grid .result-box::after {
+  content: "Σ";
+  font-size: 9rem;
+  right: -5px;
+  bottom: -10px;
+}
+
 .par-box:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.1);
