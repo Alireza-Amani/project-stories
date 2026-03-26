@@ -17,6 +17,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         flashDenken: resolve(__dirname, "flash-denken.html"),
+        hucPaper: resolve(__dirname, "huc-paper.html"),
         contact: resolve(__dirname, "contact.html"),
       },
     },

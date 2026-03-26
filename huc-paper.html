@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HUC Optimization | Alireza Amani</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./src/project.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="./index.html">HOME</a>
+        <a href="./contact.html">CONTACT</a>
+      </div>
+    </nav>
+
+    <header class="aug-hero">
+      <div class="spotlight"></div>
+      <div class="aug-hero-content">
+        <a href="./index.html" class="back-link">← Back to Projects</a>
+        <div class="meta-badges">
+          <span class="meta-tag" data-tooltip="During MSc studies (2016-2019)">
+            <span class="tag-dot"></span> 2019
+          </span>
+
+          <span class="meta-tag type-academic" data-tooltip="Master's thesis">
+            Academic
+          </span>
+        </div>
+        <h1>Innovative Optimization Algorithm for Hydro Unit Commitment</h1>
+        <p class="aug-subtitle">
+          Saving water and computational resources using a novel heuristic
+          solution scheme.
+        </p>
+
+        <a
+          href="https://github.com/Alireza-Amani/flash_denken"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="repo-link"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            ></path>
+          </svg>
+          View Source
+        </a>
+
+        <div class="tech-badges">
+          <span>Python (cvxpy)</span>
+          <span>Mathematical Modeling (MILP)</span>
+          <span>Optimization</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="par-executive-grid">
+      <div class="par-box problem-box">
+        <h4>THE PROBLEM</h4>
+        <p>
+          Flashcards encourage passive learning through contextless
+          memorization. This reinforces
+          <a
+            href="https://en.wikipedia.org/wiki/Language_transfer"
+            target="_blank"
+            class="content-link"
+            rel="noopener noreferrer"
+            >L1 interference</a
+          >
+          by relying on translations instead of active usage.
+        </p>
+      </div>
+      <div class="par-box action-box">
+        <h4>THE ACTION</h4>
+        <p>
+          I developed a local web app
+          <a
+            href="https://github.com/Alireza-Amani/flash_denken"
+            target="_blank"
+            class="content-link"
+            rel="noopener noreferrer"
+            >(Flash Denken)</a
+          >
+          based on a better way to learn vocabulary. This learning platform
+          provides contextualized and active learning and recall experience.
+        </p>
+      </div>
+      <div class="par-box result-box">
+        <h4>THE RESULT</h4>
+        <p>
+          My app was a big part of how I reached a B2 level in Dutch only a year
+          after moving here.
+        </p>
+      </div>
+    </section>
+
+    <main class="aug-deep-dive">
+      <article class="dive-section">
+        <h2>Inspiration & Context</h2>
+        <p>
+          I moved to the Netherlands in Fall 2024 and was motivated to learn
+          Dutch from the first day. I knew that I could do it myself without any
+          course or specific books. I began thinking about how I could design
+          and pursue the learning experience while immersing myself in the
+          language.
+        </p>
+        <p>
+          One of the first things I did was build a simple web app that
+          functioned as a digital version of traditional physical flashcards.
+        </p>
+        <p>
+          After a while, I was not satisfied with the progress. Specifically, I
+          could <em style="color: #1ed22a">recognize</em> the words in text but
+          I could not <em style="color: #f19b29">actively use</em> them when
+          needed or <em style="color: #f19b29">understand</em> them when they
+          were spoken.
+        </p>
+
+        <figure>
+          <img
+            src="src/assets/images/socrates-leert-nl.png"
+            alt="The photo of Socrates eating frikandel on a bike in a Dutch city."
+            class="project-banner-img"
+          />
+        </figure>
+        <p>
+          I kept thinking and questioning the learning process. I started from
+          the first principles:
+        </p>
+        <section class="qa-container">
+          <details class="qa-item">
+            <summary class="question">What is language?</summary>
+            <div class="answer">
+              <p>
+                One limited way to think about human language is as a tool that
+                we use to communicate intent.
+              </p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary class="question">How do we use language?</summary>
+            <div class="answer">
+              <p>
+                This is about context. We almost never use or encounter a word
+                in isolation. We use them embedded in a context where we react
+                or comment on something, for instance. The simplified way I
+                mentally modelled language usage is as follows, let's say for
+                learning the phrase "Turn down the volume":
+              </p>
+              <ul class="context-list">
+                <li>
+                  <strong>Situation:</strong> "I haven't slept well last night.
+                  The neighbours are too noisy."
+                </li>
+                <li>
+                  <strong>Inner Dialogue:</strong> "I have to let them know that
+                  I need them to be quieter."
+                </li>
+                <li>
+                  <strong>Expression:</strong> "Hello, could you please turn
+                  down the volume?"
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary class="question">
+              What is the process of storing and retrieving words in the brain?
+            </summary>
+            <div class="answer">
+              <p>
+                The concept of 'storage' is actually problematic here. We don't
+                store words as a static list in our brains.
+              </p>
+              <p>
+                Let's say you are trying to learn the Dutch word 'fiets' or
+                'bike' in English. You already have a network of connections in
+                your brain that would fire up when you are in a context where
+                you see someone riding a bike. Now your brain is primed to
+                <em style="color: #1ed22a">reconstruct</em> the word 'bike' when
+                needed.
+              </p>
+
+              <p>
+                When you are learning the new word (symbol + sound) 'fiets' you
+                are essentially strengthening the connections in your brain that
+                link the symbol and sound to the concept of a bicycle.
+              </p>
+
+              <p>
+                All of this will have implication on how I designed the exposure
+                and recall sessions.
+              </p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary class="question">
+              How can I help my brain remember better?
+            </summary>
+            <div class="answer">
+              <p>
+                To remember better we need to enhance how we encode the word for
+                the first time and reinforce the connections through active
+                contextualized recall.
+              </p>
+              <p>
+                We can also leverage what we know about the
+                <a
+                  href="https://en.wikipedia.org/wiki/Dual-coding_theory"
+                  target="_blank"
+                  class="content-link"
+                  rel="noopener noreferrer"
+                  >Dual Coding Theory</a
+                >
+                which suggests that our brain processes information along two
+                separate verbal and visual channels. Simply put, it will help to
+                see a visualization of the word that you are trying to
+                internalize.
+              </p>
+            </div>
+          </details>
+        </section>
+      </article>
+
+      <article class="dive-section">
+        <h2>Main Features</h2>
+        <p>The app has three main functionalities:</p>
+        <ul>
+          <li>
+            <p>
+              For each word it will generate learning material + recall prompts.
+              Google's Gemini (a large language model) is the curator. I rely
+              heavily on its ability to provide structural output. In the figure
+              below you can see the tab where I add vocabulary entires and send
+              them to Gemini for creating learning material and recall prompts.
+            </p>
+            <figure>
+              <img
+                src="src/assets/images/add-tab.png"
+                alt="Add tab screenshot"
+                class="screenshot-img"
+              />
+            </figure>
+          </li>
+          <li>
+            <p>
+              It provides learning sessions where you get exposed to learning
+              material for vocabulary entires. The most important part of this
+              material is where you see the new word/phrase within a constructed
+              context:
+            </p>
+            <figure>
+              <img
+                src="src/assets/images/learning-material.png"
+                alt="Learning session screenshot"
+                class="screenshot-img"
+              />
+            </figure>
+
+            <p>
+              In order to optimize the
+              <span class="term-trigger" data-dialog="encoding-info"
+                >encoding</span
+              >
+              we get the opportunity to create our own contextualized example,
+              add an image, and link to a YouTube video where we get to hear how
+              that word sounds:
+            </p>
+            <div class="project-gallery" style="margin: 2rem 0; gap: 1rem">
+              <figure>
+                <img
+                  src="src/assets/images/custom-scenario.png"
+                  alt="Learning session screenshot - custom scenario"
+                  class="screenshot-img"
+                />
+              </figure>
+              <figure>
+                <img
+                  src="src/assets/images/image-video.png"
+                  alt="Learning session screenshot - image and video placeholders"
+                  class="screenshot-img"
+                />
+              </figure>
+            </div>
+          </li>
+
+          <li>
+            <p>
+              It provides an opportunity for attempting active recall, using a
+              <a
+                href="https://github.com/fasiha/ebisu"
+                target="_blank"
+                class="content-link"
+                rel="noopener noreferrer"
+                >spaced repetition system</a
+              >
+              based on forgetting probability. Below you see a prompt to
+              encourage recalling of the word "knipperend":
+            </p>
+            <figure>
+              <img
+                src="src/assets/images/recall-tab-snippet.png"
+                alt="Recall session screenshot"
+                class="screenshot-img"
+              />
+            </figure>
+          </li>
+        </ul>
+      </article>
+
+      <article class="dive-section">
+        <h2>Notes</h2>
+
+        <p>
+          This is an app that just works. I have done my best during the
+          development but there is a large room for improvement as far as
+          software engineering (refactoring, efficiency, etc) is concerned.
+        </p>
+
+        <p>
+          I am still using it but the construction of it is based on the point
+          of view / ideas that I had a year ago. If I had time I would change a
+          some aspects of it.
+        </p>
+      </article>
+    </main>
+
+    <dialog id="encoding-info" class="info-dialog">
+      <h3>Encoding</h3>
+      <p>
+        In memory psychology, encoding is the crucial first step of creating a
+        new memory trace. It's how you perceive and process information to store
+        it.
+      </p>
+      <p>
+        By creating your own context (ideally leveraging the self-reference
+        effect), finding an image, and hearing the sound (Dual Coding), you make
+        this process active and multisensory, leading to much stronger retention
+        than passive reading.
+      </p>
+      <form method="dialog">
+        <button
+          class="submit-btn"
+          style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem"
+        >
+          Close
+        </button>
+      </form>
+    </dialog>
+
+    <footer>
+      <p>© 2026 Alireza Amani.</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
