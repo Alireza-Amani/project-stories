@@ -199,10 +199,37 @@ footer::before {
 
 .section-title {
   text-align: center;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  margin-bottom: 3rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 4rem;
   font-weight: 400;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  font-family: "Consolas", "Monaco", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0.9;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  height: 1px;
+  width: 40px;
+  background: linear-gradient(
+    to var(--dir, right),
+    transparent,
+    rgba(191, 167, 128, 0.4)
+  );
+}
+
+.section-title::before {
+  --dir: left;
+}
+.section-title::after {
+  --dir: right;
 }
 
 .projects-grid {
@@ -274,22 +301,22 @@ footer::before {
 /* The Text Container */
 .card-content {
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 3.8rem 4.5rem 2.5rem 1fr; /* Defines rigid slots for vertical alignment */
   flex-grow: 1;
 }
 
 .card-content h4 {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
   letter-spacing: 1px;
 }
 
 .card-content p {
   color: var(--text-muted);
   font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Your existing .tags styling remains unchanged below this */
@@ -310,10 +337,12 @@ footer::before {
 
 .tech-badges {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Aligns with the left edge of the text */
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  align-items: flex-start;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03); /* Subtle visual anchor for the tech stack */
 }
 .tech-badges span {
   font-size: 0.75rem;
@@ -442,6 +471,10 @@ footer::before {
   display: flex;
   gap: 0.8rem;
   margin-bottom: 1rem; /* Spacing before the h1 */
+}
+
+.card-content .meta-badges {
+  margin-bottom: 0; /* Let grid rows handle the spacing inside cards */
 }
 
 /* --- THE BASE TAG --- */
