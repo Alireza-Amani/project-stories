@@ -70,36 +70,46 @@
       <div class="par-box problem-box">
         <h4>THE PROBLEM</h4>
         <p>
-          Deciding how much water to release every hour from the turbines in a
-          hydropower plant (i.e. the hydro
+          Short-term resource optimization when dealing with complex physical
+          infrastructure, such as
           <a
             href="https://en.wikipedia.org/wiki/Unit_commitment_problem_in_electrical_power_production"
             class="content-link"
             target="_blank"
             rel="noopener noreferrer"
-            >unit commitment problem</a
+            >power generation</a
           >
-          ) while satisfying electicity demand and safety constraints and
-          maintaining efficiency is one of the most challenging optimization
-          problems (NP-hard).
+          in hydropower plants, is notoriously difficult (<span
+            class="term-trigger"
+            data-dialog="np-hard-info"
+            >NP-hard</span
+          >). This often forces a trade-off: either oversimplify the physical
+          reality, or accept computation times that are useless for real-world
+          operations.
         </p>
       </div>
       <div class="par-box action-box">
         <h4>THE ACTION</h4>
         <p>
-          We built a very detailed and accurate mathematical model of a system
-          of two connected hydropower dams in Iran: Karun 3 and Karun 4. We
-          created a novel algorithm which sequentially solves an approximation
-          (MILP) of the model which rapidly converges to an optimal and accurate
-          solution.
+          I designed an algorithmic architecture to break the
+          accuracy-efficiency tradeoff. It deconstructs the intractable problem
+          into a series of highly tractable (<span
+            class="term-trigger"
+            data-dialog="milp-info"
+            >MILP</span
+          >) optimizations, which reliably converges to an optimal solution
+          without stripping away the physical constraints.
         </p>
       </div>
       <div class="par-box result-box">
         <h4>THE RESULT</h4>
         <p>
-          Our open-source algorithm solves the unit commitment problem an order of magnitude
-          faster, with low computational cost, compared to the commercial (MINLP) solvers while also yielding a more
-          optimal answer, potentially saving more than 20'000 m3/day.
+          Our open-source algorithm solves the unit commitment problem an order
+          of magnitude faster, with low computational cost, compared to the
+          commercial (
+          <span class="term-trigger" data-dialog="minlp-info">MINLP</span>
+          ) solvers while also yielding a more optimal answer, potentially
+          saving more than 20,000 m<sup>3</sup>/day.
         </p>
       </div>
     </section>
@@ -350,6 +360,74 @@
         effect), finding an image, and hearing the sound (Dual Coding), you make
         this process active and multisensory, leading to much stronger retention
         than passive reading.
+      </p>
+      <form method="dialog">
+        <button
+          class="submit-btn"
+          style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem"
+        >
+          Close
+        </button>
+      </form>
+    </dialog>
+
+    <dialog id="np-hard-info" class="info-dialog">
+      <h3>NP-hard</h3>
+      <p>
+        In computational complexity theory, NP-hard refers to a class of
+        problems that are at least as difficult as the hardest problems in the
+        "Non-deterministic Polynomial" set.
+      </p>
+      <p>
+        Practically, this means that as the number of turbines or hours in the
+        schedule increases, the time required to find the absolute perfect
+        solution grows exponentially, making traditional methods too slow for
+        real-time operations.
+      </p>
+      <form method="dialog">
+        <button
+          class="submit-btn"
+          style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem"
+        >
+          Close
+        </button>
+      </form>
+    </dialog>
+
+    <dialog id="milp-info" class="info-dialog">
+      <h3>MILP</h3>
+      <p>
+        <strong>Mixed-Integer Linear Programming</strong> is a mathematical
+        modeling technique where the objective and constraints are linear, but
+        some variables are restricted to be integers (usually 0 or 1).
+      </p>
+      <p>
+        In hydropower, binary variables are used to represent whether a turbine
+        is "On" or "Off." Linear approximations make these models much faster to
+        solve than non-linear ones.
+      </p>
+      <form method="dialog">
+        <button
+          class="submit-btn"
+          style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem"
+        >
+          Close
+        </button>
+      </form>
+    </dialog>
+
+    <dialog id="minlp-info" class="info-dialog">
+      <h3>MINLP</h3>
+      <p>
+        <strong>Mixed-Integer Non-Linear Programming</strong> is the "boss
+        level" of optimization. It combines integer constraints (On/Off) with
+        complex, non-linear physical formulas (like water pressure and turbine
+        efficiency curves).
+      </p>
+      <p>
+        While highly accurate, these problems are notoriously difficult and slow
+        to solve. Our approach approximates these non-linearities using a
+        sequence of faster MILP steps.
       </p>
       <form method="dialog">
         <button
