@@ -444,6 +444,18 @@ footer::before {
   box-shadow: 0 0 15px var(--glow-color);
 }
 
+/* Center buttons inside dialog info forms */
+.info-dialog form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-dialog .submit-btn {
+  align-self: center;
+}
+
 .contact-link {
   color: #d1d1d1;
   text-decoration: none;
@@ -568,4 +580,16 @@ footer::before {
 }
 .type-work .tag-dot {
   background-color: var(--color-action); /* Yellow/Orange */
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid;
+  color: var(--accent-gold);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
