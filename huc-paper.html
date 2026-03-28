@@ -166,18 +166,60 @@
           Was I disappointed? Absolutely. Discouraged? Not at all. This is where
           the problem solving part of my brain takes over with pleasure. After
           immersing myself in the system's physics and constraints, I realized I
-          could decouple the two variables involved in the non-linear (non-convex) constraint. I fixed them with
-          calculated initial guesses, solved a linearized version, and
-          iteratively updated those variables based on accurate physical equations. It
-          worked. It always converged to an optimal and
+          could decouple the two variables involved in the non-linear
+          (non-convex) constraint. I fixed them with calculated initial guesses,
+          solved a linearized version, and iteratively updated those variables
+          based on accurate physical equations. It worked. It always converged
+          to an optimal and
           <em style="color: #1ed22a">accurate</em>
           solution.
         </p>
+      </article>
 
-
+      <article class="dive-section">
+        <details class="side-story-container">
+          <summary class="side-story-summary">
+            <span class="story-tag">SIDE STORY</span>
+            <span class="story-title">When the Commercial Solvers Failed.</span>
+          </summary>
+          <div class="side-story-content">
+            <p>
+              Of course I kept on looking for ways to be able to use the MINLP
+              solvers. I was adamant to compare my own algorithm with them. I
+              finally found an online platform (<a
+                href="https://neos-server.org/neos/"
+                class="content-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NEOS Server</a
+              >) where I could upload my optimization code and it would run it
+              on their servers with commercial solvers. Long live University of
+              Wisconsin-Madison!
+            </p>
+            <p>
+              But here was the real challenge: the commercial solvers were not
+              able to step in the feasible region of the problem using the
+              initial points that the software automatically generated (<span
+                class="term-trigger"
+                data-dialog="initial-points-info"
+                >?</span
+              >) Another brick wall? Yeah, more like another chance to innovate.
+              I designed a heuristic algorithm (read more in the published
+              <a
+                href="https://www.researchgate.net/profile/Alireza-Amani-4/publication/351064069_Solving_Hydropower_Unit_Commitment_Problem_Using_a_Novel_Sequential_Mixed_Integer_Linear_Programming_Approach/links/67f6422f03b8d7280e2fa6e0/Solving-Hydropower-Unit-Commitment-Problem-Using-a-Novel-Sequential-Mixed-Integer-Linear-Programming-Approach.pdf"
+                class="content-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >research paper</a
+              >) that generates initial points that helps the solvers get
+              started.
+            </p>
+          </div>
+        </details>
+      </article>
     </main>
 
-
+    <!-- Info Dialogs parking ------------------------------------------------->
     <dialog id="np-hard-info" class="info-dialog">
       <h3>NP-hard</h3>
       <p>
@@ -192,11 +234,7 @@
         real-time operations.
       </p>
       <form method="dialog">
-        <button
-          class="submit-btn"
-        >
-          Close
-        </button>
+        <button class="submit-btn">Close</button>
       </form>
     </dialog>
 
@@ -213,12 +251,7 @@
         solve than non-linear ones.
       </p>
       <form method="dialog">
-        <button
-          class="submit-btn"
-
-        >
-          Close
-        </button>
+        <button class="submit-btn">Close</button>
       </form>
     </dialog>
 
@@ -236,11 +269,20 @@
         sequence of faster MILP steps.
       </p>
       <form method="dialog">
-        <button
-          class="submit-btn"
-        >
-          Close
-        </button>
+        <button class="submit-btn">Close</button>
+      </form>
+    </dialog>
+
+    <dialog id="initial-points-info" class="info-dialog">
+      <h3>Initial Points</h3>
+      <p>
+        Optimization algorithms often require an initial guess to start the
+        search for the optimal solution. The quality of this guess can
+        significantly affect the convergence speed and success of the solver.
+      </p>
+
+      <form method="dialog">
+        <button class="submit-btn">Close</button>
       </form>
     </dialog>
 
