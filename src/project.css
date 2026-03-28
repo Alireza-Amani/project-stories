@@ -504,3 +504,129 @@ code {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+.minimized-objectives {
+  list-style: none; /* Remove default numbering */
+  padding-left: 0; /* Remove default padding */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  counter-reset: minimized-objectives; /* ensure numbering starts at 1 for this list */
+}
+
+.minimized-objectives li {
+  position: relative;
+  padding-left: 1.8em; /* Space for custom counter */
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+  counter-increment: minimized-objectives;
+}
+
+.minimized-objectives li::before {
+  content: counter(minimized-objectives) "."; /* Custom counter: start from 1 */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: var(--accent-gold); /* Using an existing accent color */
+}
+
+/* --- Optimization Model Styles --- */
+.optimization-model {
+  margin: 4rem 0;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.optimization-model h3 {
+  font-size: 1.4rem;
+  color: var(--text-main);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.optimization-model h4 {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.model-section {
+  margin-bottom: 4rem;
+}
+
+.model-section.bottleneck {
+  opacity: 0.85;
+}
+
+.innovation-highlight {
+  background: rgba(191, 167, 128, 0.05);
+  border: 1px solid rgba(191, 167, 128, 0.2);
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  margin: 4rem 0;
+}
+
+.innovation-label {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--accent-gold);
+  color: var(--bg-color);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.innovation-highlight h4 {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 0.5rem;
+}
+
+.innovation-highlight .math-equation {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(191, 167, 128, 0.3);
+  box-shadow: 0 0 20px rgba(191, 167, 128, 0.05);
+}
+
+.math-equation {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow-x: auto;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.constraint-item {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.constraint-item:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.more-constraints {
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  background: rgba(191, 167, 128, 0.03);
+  border-left: 2px solid var(--accent-gold);
+  color: var(--text-muted);
+  font-style: italic;
+}

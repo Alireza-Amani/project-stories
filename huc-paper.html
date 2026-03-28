@@ -6,6 +6,11 @@
     <title>HUC Optimization | Alireza Amani</title>
     <link rel="stylesheet" href="./src/style.css" />
     <link rel="stylesheet" href="./src/project.css" />
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -28,7 +33,7 @@
             class="meta-tag type-academic"
             data-tooltip="Part of my Master's thesis at Iran University of Science and Technology"
           >
-            Academic
+            Operations Research
           </span>
         </div>
         <h1>Innovative Optimization Algorithm for Hydro Unit Commitment</h1>
@@ -217,8 +222,148 @@
           </div>
         </details>
       </article>
+
+      <article class="dive-section">
+        <h2>Technical Details</h2>
+        <p>
+          We mathematically modeled two cascaded hydropower dams in Iran: Karun
+          3 and Karun 4. The problem is to create a 24-hour schedule for the
+          turbines in both dams that meets the forecasted electricity demand
+          while minimizing:
+        </p>
+        <ol class="minimized-objectives">
+          <li>Water release</li>
+          <li>
+            The number of times the turbines are turned on and off (to reduce
+            wear and tear).
+          </li>
+        </ol>
+        <p>subject to a set of physical and operational constraints</p>
+
+        <div class="optimization-model">
+          <h3>The Mathematical Formulation</h3>
+
+          <!-- 1. THE GOAL -->
+          <section class="model-section">
+            <h4>1. The Objective</h4>
+            <p>
+              The primary goal is water conservation: minimizing total release
+              volume while penalizing frequent turbine switching.
+            </p>
+            <div class="math-equation">
+              $$ \text{Minimize } Z = \sum_{t=1}^{24} \sum_{r \in \{3,4\}}
+              (R_{r,t} \times 3600) + \text{Startup Penalties} $$
+            </div>
+          </section>
+
+          <!-- 2. THE BOTTLENECK -->
+          <section class="model-section bottleneck">
+            <h4>2. The Computational Bottleneck</h4>
+            <p>
+              Power generation is naturally
+              <span class="term-trigger" data-dialog="non-convex-info"
+                >non-convex</span
+              >. The relationship between head, flow, and status is governed by
+              a complex fractional polynomial which I derived from the turbines'
+              <span class="term-trigger" data-dialog="hill-chart-info"
+                >hill charts</span
+              >:
+            </p>
+            <div class="math-equation">
+              $$ p_{r,i,t} = \left( \frac{q_{r,i,t} + \alpha_{3}^{p} h_{r,t}^{2}
+              - \alpha_{2}^{p} h_{r,t} - \alpha_{1}^{p}}{\alpha_{4}^{p} +
+              \alpha_{5}^{p} h_{r,t}} \right) Z_{r,i,t} $$
+            </div>
+            <p>
+              Feeding this directly into a solver creates an intractable search
+              space for real-time operations.
+            </p>
+          </section>
+
+          <!-- 3. THE INNOVATION -->
+          <section class="model-section innovation-highlight">
+            <div class="innovation-label">THE BREAKTHROUGH</div>
+            <h4>3. Sequential MILP Approximation</h4>
+            <p>
+              To break the deadlock, I developed a decoupling scheme. By using
+              the net head (\(\bar{h}\)) and efficiency (\(\bar{\xi}\)) from the
+              <em>previous</em> iteration as fixed constants, the non-linear
+              equation transforms into a highly efficient
+              <strong>Mixed-Integer Linear</strong> form:
+            </p>
+            <div class="math-equation">
+              $$ p_{r,i,t} = \bar{\xi}_{r,i,t} \bar{h}_{r,t} q_{r,i,t} $$
+            </div>
+
+            <p>
+              It starts with an initial guess for \(\bar{h}\) and \(\bar{\xi}\).
+              Once a provisional generation schedule is generated, the algorithm
+              must verify its physical validity. It calculates the
+              <em>actual</em> net head and efficiency resulting from the newly
+              proposed turbine flows. The check phase measures the discrepancy
+              between these true values and the initial fixed constants
+              (\(\bar{h}\) and \(\bar{\xi}\)). If the difference is within a
+              strict, predefined tolerance, the model has converged.
+            </p>
+            <p>
+              If the tolerance limit is breached, the algorithm discards the old
+              values. The actual head and efficiency values computed during the
+              check phase replace the previous constants. This data is then
+              inserted back into the linear solver, running a new iteration that
+              forces the mathematical approximation to progressively lock in on
+              the reservoir's actual hydrodynamics.
+            </p>
+            <p>
+              The algorithm "Guesses, Checks, and Replaces"—iterating until the
+              fast linear approximation perfectly matches the strict physical
+              reality of the dams.
+            </p>
+          </section>
+
+          <!-- 4. THE CONSTRAINTS -->
+          <section class="model-section">
+            <h4>4. Physical Boundaries</h4>
+            <div class="constraint-item">
+              <p><strong>Turbine Discharge Limits</strong></p>
+              <p>
+                Flow stays within mechanical bounds, but only when the unit is
+                active (\(Z=1\)).
+              </p>
+              <div class="math-equation">
+                $$ Z_{r,i,t} \cdot Q_{min,r} \le q_{r,i,t} \le Z_{r,i,t} \cdot
+                Q_{max,r} $$
+              </div>
+            </div>
+
+            <div class="constraint-item">
+              <p><strong>Grid Demand Balance</strong></p>
+              <p>
+                The total generation across the cascade must meet the hourly
+                load.
+              </p>
+              <div class="math-equation">
+                $$ \sum_{r \in \{3,4\}} \sum_{i} p_{r,i,t} \ge \text{Demand}_{t}
+                $$
+              </div>
+            </div>
+          </section>
+
+          <div class="more-constraints">
+            <p>
+              <em
+                >... subject to further constraints including cascaded reservoir
+                water balance, physical storage limits, minimum up/down times,
+                and spinning reserve requirements.</em
+              >
+            </p>
+          </div>
+        </div>
+      </article>
     </main>
 
+    <!--  -->
+    <!--  -->
+    <!--  -->
     <!-- Info Dialogs parking ------------------------------------------------->
     <dialog id="np-hard-info" class="info-dialog">
       <h3>NP-hard</h3>
@@ -281,6 +426,38 @@
         significantly affect the convergence speed and success of the solver.
       </p>
 
+      <form method="dialog">
+        <button class="submit-btn">Close</button>
+      </form>
+    </dialog>
+
+    <dialog id="non-convex-info" class="info-dialog">
+      <h3>Non-Convex Relationship</h3>
+      <p>
+        A non-convex relationship means that the mathematical function
+        describing the system has multiple local minima and maxima, making it
+        difficult for optimization algorithms to find the global optimum. In our
+        case, the power output of a turbine doesn't change in a simple,
+        predictable way with changes in water flow and head, which is why we
+        need to use approximations to solve the problem efficiently.
+      </p>
+      <p>
+        This non-convexity is what makes the original problem so computationally
+        challenging and is the reason why our linearized approach is so
+        effective.
+      </p>
+      <form method="dialog">
+        <button class="submit-btn">Close</button>
+      </form>
+    </dialog>
+
+    <dialog id="hill-chart-info" class="info-dialog">
+      <h3>Hill Chart</h3>
+      <p>
+        A hill chart is a representation of a turbine's efficiency across
+        different operating conditions. It shows how the power output varies
+        with changes in water flow and head.
+      </p>
       <form method="dialog">
         <button class="submit-btn">Close</button>
       </form>
