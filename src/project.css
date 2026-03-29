@@ -253,7 +253,7 @@ article p {
   max-height: 350px;
   object-fit: cover;
   border-radius: 8px;
-  margin: 3rem 0;
+  margin: 3rem 0 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: zoom-in;
 }
@@ -270,12 +270,14 @@ article p {
   cursor: zoom-in;
 }
 
-.gallery-item figcaption {
+figcaption {
   margin-top: 1rem;
+  margin-bottom: 2.5rem;
   font-size: 0.9rem;
   color: var(--text-muted);
   border-left: 2px solid var(--accent-gold);
   padding-left: 1rem;
+  font-style: italic;
 }
 
 /* --- Lightbox --- */
