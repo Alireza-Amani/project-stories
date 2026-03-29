@@ -1,7 +1,9 @@
 /* =========================================
    PROJECT PAGE STYLES (Augmented P.A.R.)
    ========================================= */
-
+:root {
+  --font-header: "Playfair Display", Georgia, "Times New Roman", serif;
+}
 .aug-hero {
   padding: 6rem 2rem 3rem;
   text-align: center;
@@ -97,6 +99,7 @@
   width: 4px;
   height: 100%;
   z-index: 2;
+  font-family: var(--font-header);
 }
 
 /* The Giant Background Number */

@@ -7,7 +7,13 @@
   --glow-color: rgba(220, 200, 170, 0.15);
   --glow-color-strong: rgba(220, 200, 170, 0.4);
   --card-bg: #14161a;
-  --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  /* Modern Geometric Sans-Serif for Body */
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Sophisticated Serif for Headers */
+  --font-header: "Playfair Display", Georgia, "Times New Roman", serif;
 
   /* Status Colors for PAR */
   --color-problem: #ff5f56;
@@ -18,7 +24,7 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -29,6 +35,16 @@ h2 {
   margin-bottom: 2rem;
   color: var(--text-main);
   font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+  font-family: var(--font-header);
+  font-weight: 700;
+  letter-spacing: -0.01em; /* Playfair Display looks best with slightly tighter tracking */
 }
 
 strong {
@@ -54,7 +70,7 @@ strong {
 
 .logo {
   font-size: 2rem;
-  font-family: serif;
+  font-family: var(--font-header);
   letter-spacing: 2px;
 }
 
@@ -177,6 +193,22 @@ footer::before {
 .aug-hero-content {
   position: relative;
   z-index: 2;
+}
+
+/* Specific adjustment for the Hero section to emphasize the serif style */
+.hero-content h1 {
+  font-weight: 800;
+  font-style: italic; /* Optional: Adds a literary/academic feel to the name */
+}
+
+/* Ensure the subtitle remains clean and modern */
+.hero-content h2,
+.aug-subtitle {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 
 .projects-section {
