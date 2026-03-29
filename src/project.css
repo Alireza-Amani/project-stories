@@ -37,6 +37,13 @@
   margin-bottom: 2rem;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
 .repo-link {
   display: inline-flex;
   align-items: center;
