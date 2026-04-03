@@ -253,88 +253,83 @@
 
       <article class="dive-section">
         <h2>Main Features</h2>
-        <p>The app has three main functionalities:</p>
-        <ul>
-          <li>
-            <p>
-              For each word it will generate learning material + recall prompts.
-              Google's Gemini (a large language model) is the curator. I rely
-              heavily on its ability to provide structural output. In the figure
-              below you can see the tab where I add vocabulary entries and send
-              them to Gemini for creating learning material and recall prompts.
-            </p>
-            <figure>
-              <img
-                src="src/assets/images/add-tab.png"
-                alt="Add tab screenshot"
-                class="screenshot-img"
-              />
-            </figure>
-          </li>
-          <li>
-            <p>
-              It provides learning sessions where you get exposed to learning
-              material for vocabulary entries. The most important part of this
-              material is where you see the new word/phrase within a constructed
-              context:
-            </p>
-            <figure>
-              <img
-                src="src/assets/images/learning-material.png"
-                alt="Learning session screenshot"
-                class="screenshot-img"
-              />
-            </figure>
 
-            <p>
-              In order to optimize the
-              <span class="term-trigger" data-dialog="encoding-info"
-                >encoding</span
-              >
-              we get the opportunity to create our own contextualized example,
-              add an image, and link to a YouTube video where we get to hear how
-              that word sounds:
-            </p>
-            <div class="project-gallery" style="margin: 2rem 0; gap: 1rem">
-              <figure>
-                <img
-                  src="src/assets/images/custom-scenario.png"
-                  alt="Learning session screenshot - custom scenario"
-                  class="screenshot-img"
-                />
-              </figure>
-              <figure>
-                <img
-                  src="src/assets/images/image-video.png"
-                  alt="Learning session screenshot - image and video placeholders"
-                  class="screenshot-img"
-                />
-              </figure>
-            </div>
-          </li>
+        <section class="feature-item">
+          <h3>AI-Powered Material Generation</h3>
+          <p>
+            For each entry, the app leverages Google's Gemini API to generate
+            context-rich learning materials and active recall prompts. It relies
+            on the structured output feature of Gemini, which allows it to
+            return data in a predefined format, making it easier to parse and
+            integrate into the app's interface.
+          </p>
+          <figure>
+            <img
+              src="src/assets/images/add-tab.png"
+              alt="Add tab screenshot"
+              class="screenshot-img"
+            />
+          </figure>
+        </section>
 
-          <li>
-            <p>
-              It provides an opportunity for attempting active recall, using a
-              <a
-                href="https://github.com/fasiha/ebisu"
-                target="_blank"
-                class="content-link"
-                rel="noopener noreferrer"
-                >spaced repetition system</a
-              >
-              based on forgetting probability. Below you see a prompt to
-              encourage recalling of the word "knipperend":
-            </p>
+        <section class="feature-item">
+          <h3>Contextual Learning Sessions</h3>
+          <p>
+            The core experience revolves around exposure to new vocabulary
+            within constructed realistic contexts. To optimize
+            <span class="term-trigger" data-dialog="encoding-info"
+              >encoding</span
+            >, users can supplement AI-generated content with their own
+            contextualized examples, images, and linked audio-visual references.
+          </p>
+          <figure>
+            <img
+              src="src/assets/images/learning-material.png"
+              alt="Learning session screenshot"
+              class="screenshot-img"
+            />
+          </figure>
+          <div class="project-gallery" style="margin-top: 1rem; gap: 1rem">
             <figure>
               <img
-                src="src/assets/images/recall-tab-snippet.png"
-                alt="Recall session screenshot"
+                src="src/assets/images/custom-scenario.png"
+                alt="Custom scenario example"
                 class="screenshot-img"
               />
             </figure>
-          </li>
-        </ul>
+            <figure>
+              <img
+                src="src/assets/images/image-video.png"
+                alt="Multimedia integration placeholders"
+                class="screenshot-img"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <section class="feature-item">
+          <h3>Intelligent Active Recall</h3>
+          <p>
+            It provides an opportunity for attempting active recall. I
+            implemented a
+            <a
+              href="https://github.com/fasiha/ebisu"
+              target="_blank"
+              class="content-link"
+              rel="noopener noreferrer"
+              >spaced repetition system</a
+            >
+            (SRS) based on calculating forgetting probability. Below you see a
+            prompt to encourage recalling of the word "knipperend"
+          </p>
+          <figure>
+            <img
+              src="src/assets/images/recall-tab-snippet.png"
+              alt="Recall session screenshot"
+              class="screenshot-img"
+            />
+          </figure>
+        </section>
       </article>
 
       <article class="dive-section">
