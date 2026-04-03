@@ -642,3 +642,26 @@ code {
   color: var(--text-muted);
   font-style: italic;
 }
+
+.feature-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.feature-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: var(--accent-gold, #f19b29);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.feature-item h3 {
+  margin: 0;
+  color: var(--text-bright, #fff);
+  font-family: "Playfair Display", serif;
+}
