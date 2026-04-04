@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Project Name] | [Your Name]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/reset.css" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/project.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="./index.html">HOME</a>
+        <a href="./contact.html">CONTACT</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">CV ↗</a>
+      </div>
+    </nav>
+
+    <header class="aug-hero">
+      <div class="spotlight"></div>
+      <div class="aug-hero-content">
+        <a href="./index.html" class="back-link">← Back to Projects</a>
+        <div class="meta-badges">
+          <span class="meta-tag" data-tooltip="Project Duration">
+            <span class="tag-dot"></span> [Year]
+          </span>
+          <span
+            class="meta-tag type-personal"
+            data-tooltip="Category Description"
+          >
+            [Category/Tag]
+          </span>
+        </div>
+        <h1>[Project Title]</h1>
+        <p class="aug-subtitle">
+          [Short, impactful summary of what the project does or the core value
+          proposition.]
+        </p>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="repo-link">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            ></path>
+          </svg>
+          View Source
+        </a>
+
+        <div class="tech-badges">
+          <span>[Language/Framework]</span>
+          <span>[Database/Tool]</span>
+          <span>[API/Library]</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="par-executive-grid">
+      <div class="par-box problem-box">
+        <h4>THE PROBLEM</h4>
+        <p>
+          [Describe the friction, inefficiency, or challenge this project
+          addresses.]
+        </p>
+      </div>
+      <div class="par-box action-box">
+        <h4>THE ACTION</h4>
+        <p>
+          [Describe the solution you built and the key methodology or tech
+          used.]
+        </p>
+      </div>
+      <div class="par-box result-box">
+        <h4>THE RESULT</h4>
+        <p>
+          [Quantifiable or qualitative outcome of the project's implementation.]
+        </p>
+      </div>
+    </section>
+
+    <main class="aug-deep-dive">
+      <article class="dive-section">
+        <h2>Inspiration & Context</h2>
+        <p>
+          [Explain why you started this project and the personal or professional
+          motivation behind it.]
+        </p>
+
+        <figure>
+          <img
+            src="path/to/image.png"
+            alt="Descriptive alt text"
+            class="project-banner-img screenshot-img"
+          />
+          <figcaption>[Contextual caption for the image above]</figcaption>
+        </figure>
+      </article>
+
+      <article class="dive-section">
+        <h2>Main Features</h2>
+
+        <section class="feature-item">
+          <div class="feature-header">
+            <span class="feature-badge">01</span>
+            <h3>[Key Feature One]</h3>
+          </div>
+          <p>
+            [Detail on how this feature works and why it matters to the user.]
+          </p>
+          <figure>
+            <img
+              src="path/to/screenshot1.png"
+              alt="Feature screenshot"
+              class="screenshot-img"
+            />
+          </figure>
+        </section>
+
+        <section class="feature-item">
+          <div class="feature-header">
+            <span class="feature-badge">02</span>
+            <h3>[Key Feature Two]</h3>
+          </div>
+          <p>[Detail on technical implementation or user experience.]</p>
+          <div class="project-gallery" style="margin-top: 1rem; gap: 1rem">
+            <figure>
+              <img
+                src="path/to/screenshot2.png"
+                alt="Feature detail"
+                class="screenshot-img"
+              />
+            </figure>
+            <figure>
+              <img
+                src="path/to/screenshot3.png"
+                alt="Additional view"
+                class="screenshot-img"
+              />
+            </figure>
+          </div>
+        </section>
+      </article>
+
+      <article class="dive-section">
+        <h2>Reflections & Future Work</h2>
+        <p>
+          [What did you learn? What would you change in a future iteration?]
+        </p>
+      </article>
+    </main>
+
+    <dialog id="info-dialog" class="info-dialog">
+      <h3>[Term/Concept]</h3>
+      <p>[Detailed explanation or technical definition.]</p>
+      <form method="dialog">
+        <button class="submit-btn">Close</button>
+      </form>
+    </dialog>
+
+    <footer>
+      <p>© [Year] [Your Name].</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

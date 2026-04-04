@@ -19,6 +19,7 @@ export default defineConfig({
         flashDenken: resolve(__dirname, "flash-denken.html"),
         hucPaper: resolve(__dirname, "huc-paper.html"),
         contact: resolve(__dirname, "contact.html"),
+        fluxnet: resolve(__dirname, "fluxnet.html"),
       },
     },
   },
