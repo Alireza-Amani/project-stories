@@ -144,6 +144,24 @@
           motivation behind it.]
         </p>
 
+        <div class="map-wrapper">
+          <div class="map-controls">
+            <span class="control-label">Group By:</span>
+            <select id="map-category-select">
+              <option value="IGBP">Vegetation (IGBP)</option>
+              <option value="Koppen">Climate (Koppen)</option>
+            </select>
+          </div>
+          <figure class="map-container">
+            <div id="fluxnet-map"></div>
+
+            <figcaption id="map-caption">
+              Global distribution of FLUXNET sites categorized by IGBP
+              vegetation types and Koppen climate zones.
+            </figcaption>
+          </figure>
+        </div>
+
         <figure>
           <img
             src="path/to/image.png"
@@ -220,5 +238,6 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/map.js"></script>
   </body>
 </html>
