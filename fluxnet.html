@@ -117,22 +117,34 @@
       <div class="par-box problem-box">
         <h4>THE PROBLEM</h4>
         <p>
-          [Describe the friction, inefficiency, or challenge this project
-          addresses.]
+          ML models are useless if they fail when deployed to
+          <span class="term-trigger" data-dialog="unseen-locations"
+            >new geographical locations</span
+          >. Standard training workflows often lead models to memorize
+          location-specific noise rather than learning generalizable patterns,
+          resulting in over-optimistic performance that collapses in real-world
+          deployment.
         </p>
       </div>
       <div class="par-box action-box">
         <h4>THE ACTION</h4>
         <p>
-          [Describe the solution you built and the key methodology or tech
-          used.]
+          Trained three powerful ML models (LightGBM, Random Forest, Neural
+          Networks) on IoT data from 124 global locations. Enforced strict
+          spatial cross-validation by totally separating the training and test
+          sites.
         </p>
       </div>
       <div class="par-box result-box">
         <h4>THE RESULT</h4>
         <p>
-          [Quantifiable or qualitative outcome of the project's implementation.]
+          The models generalized successfully to unseen data. They significantly
+          outperformed traditional industry benchmarks. However, testing a
+          standard random data split exposed considerable over-optimism in the
+          standard method. This proved strict spatial validation is the only way
+          to guarantee real-world reliability.
         </p>
+        .
       </div>
     </section>
 
@@ -140,8 +152,20 @@
       <article class="dive-section">
         <h2>Inspiration & Context</h2>
         <p>
-          [Explain why you started this project and the personal or professional
-          motivation behind it.]
+          Evapotranspiration is one of the most difficult variables to measure
+          directly in the field. At the same time, it is a critical variable in
+          analyzing the global water cycle. I saw great potential in machine
+          learning models to fill this gap for locations where measurement is
+          practically impossible. By leveraging the massive
+          <a
+            href="https://fluxnet.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="content-link"
+            >FLUXNET dataset</a
+          >, my main question was: despite their success in other fields, could
+          these models actually learn physical patterns that are generalizable
+          to unseen locations?
         </p>
 
         <div class="map-wrapper">
@@ -156,85 +180,34 @@
             <div id="fluxnet-map"></div>
 
             <figcaption id="map-caption">
-              Global distribution of FLUXNET sites categorized by IGBP
-              vegetation types and Koppen climate zones.
+              Global distribution of FLUXNET sites used in my analysis,
+              categorized by IGBP vegetation types and Koppen climate zones.
             </figcaption>
           </figure>
         </div>
 
-        <figure>
-          <img
-            src="path/to/image.png"
-            alt="Descriptive alt text"
-            class="project-banner-img screenshot-img"
-          />
-          <figcaption>[Contextual caption for the image above]</figcaption>
-        </figure>
-      </article>
-
-      <article class="dive-section">
-        <h2>Main Features</h2>
-
-        <section class="feature-item">
-          <div class="feature-header">
-            <span class="feature-badge">01</span>
-            <h3>[Key Feature One]</h3>
-          </div>
-          <p>
-            [Detail on how this feature works and why it matters to the user.]
-          </p>
-          <figure>
-            <img
-              src="path/to/screenshot1.png"
-              alt="Feature screenshot"
-              class="screenshot-img"
-            />
-          </figure>
-        </section>
-
-        <section class="feature-item">
-          <div class="feature-header">
-            <span class="feature-badge">02</span>
-            <h3>[Key Feature Two]</h3>
-          </div>
-          <p>[Detail on technical implementation or user experience.]</p>
-          <div class="project-gallery" style="margin-top: 1rem; gap: 1rem">
-            <figure>
-              <img
-                src="path/to/screenshot2.png"
-                alt="Feature detail"
-                class="screenshot-img"
-              />
-            </figure>
-            <figure>
-              <img
-                src="path/to/screenshot3.png"
-                alt="Additional view"
-                class="screenshot-img"
-              />
-            </figure>
-          </div>
-        </section>
-      </article>
-
-      <article class="dive-section">
-        <h2>Reflections & Future Work</h2>
         <p>
-          [What did you learn? What would you change in a future iteration?]
+          I also noticed that the scientific community typically trains and
+          tests models on the exact same locations, which leads to a spatial
+          data leak. And that is why I decided to take three of the most
+          powerful ML regression models and put them to the test.
         </p>
       </article>
     </main>
 
-    <dialog id="info-dialog" class="info-dialog">
-      <h3>[Term/Concept]</h3>
-      <p>[Detailed explanation or technical definition.]</p>
+    <dialog id="unseen-locations" class="info-dialog">
+      <h3>New Geographical Locations</h3>
+      <p>
+        These are locations where their data is not represented in the training
+        set.
+      </p>
       <form method="dialog">
         <button class="submit-btn">Close</button>
       </form>
     </dialog>
 
     <footer>
-      <p>© [Year] [Your Name].</p>
+      <p>© 2026 Alireza Amani.</p>
     </footer>
 
     <script type="module" src="/src/main.js"></script>
